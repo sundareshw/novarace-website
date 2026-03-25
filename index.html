@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOVA RACE — India's Leading Race Technology Partner</title>
+<meta name="description" content="End-to-end race technology and event management. Registration, chip timing, live tracking, results, finisher media, and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --nr-lime: #C7CC00;
+  --nr-pink: #E6007D;
+  --nr-yellow: #FBB03B;
+  --nr-blue: #3FA9F5;
+  --nr-violet: #282462;
+  --nr-violet-deep: #1e1a4e;
+  --nr-violet-light: #342f78;
+  --nr-black: #333333;
+  --nr-gray: #606060;
+  --nr-white: #FCFCFC;
+  --bg-primary: #282462;
+  --bg-dark: #1a1648;
+  --bg-card: rgba(52, 47, 120, 0.5);
+  --bg-card-hover: rgba(52, 47, 120, 0.8);
+  --text-primary: #FCFCFC;
+  --text-secondary: rgba(252, 252, 252, 0.7);
+  --text-muted: rgba(252, 252, 252, 0.4);
+  --border: rgba(252, 252, 252, 0.1);
+  --border-hover: rgba(252, 252, 252, 0.2);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { background: var(--bg-primary); color: var(--text-primary); font-family: 'DM Sans', sans-serif; overflow-x: hidden; line-height: 1.6; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.section { padding: 80px 0; position: relative; }
+.section-label { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--nr-pink); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+.section-label::before { content: ''; width: 24px; height: 1px; background: var(--nr-pink); }
+.section-title { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(32px, 5vw, 48px); text-transform: uppercase; letter-spacing: 3px; line-height: 1.1; margin-bottom: 20px; }
+
+/* Brand pattern */
+.brand-pattern-bg { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='10' y='10' width='35' height='35' fill='%23C7CC00' transform='rotate(45 27 27)'/%3E%3Ccircle cx='100' cy='30' r='18' fill='%23E6007D'/%3E%3Cpolygon points='155,10 175,45 135,45' fill='%23FBB03B'/%3E%3Cpolygon points='50,140 70,105 30,105' fill='%233FA9F5'/%3E%3Ccircle cx='170' cy='150' r='14' fill='%23E6007D'/%3E%3Cpolygon points='100,170 120,200 80,200' fill='%233FA9F5'/%3E%3Crect x='140' y='90' width='25' height='25' fill='%23C7CC00' transform='rotate(45 152 102)'/%3E%3C/svg%3E"); background-size: 200px 200px; }
+
+/* Topbar */
+.topbar { position: fixed; top: 0; left: 0; right: 0; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; z-index: 100; background: linear-gradient(to bottom, var(--bg-dark), transparent); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.logo-svg { height: 36px; width: auto; }
+.topbar-tag { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); border: 1px solid var(--border); padding: 6px 14px; }
+
+/* Hero */
+.hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; position: relative; padding: 120px 0 60px; overflow: hidden; }
+.hero-shapes { position: absolute; top: 0; right: 0; bottom: 0; width: 50%; pointer-events: none; overflow: hidden; }
+.hero-shape { position: absolute; opacity: 0.08; animation: floatShape 8s ease-in-out infinite; }
+.hero-shape.s1 { top: 10%; right: 5%; width: 180px; height: 180px; background: var(--nr-lime); clip-path: polygon(0 0, 100% 0, 0 100%); }
+.hero-shape.s2 { top: 35%; right: 25%; width: 140px; height: 140px; background: var(--nr-pink); border-radius: 50%; animation-delay: 2s; }
+.hero-shape.s3 { top: 60%; right: 10%; width: 160px; height: 160px; background: var(--nr-yellow); clip-path: polygon(50% 0, 100% 100%, 0 100%); animation-delay: 4s; }
+.hero-shape.s4 { top: 20%; right: 45%; width: 120px; height: 120px; background: var(--nr-blue); clip-path: polygon(50% 100%, 100% 0, 0 0); animation-delay: 1s; }
+@keyframes floatShape { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-20px) rotate(3deg); } }
+.hero-content { position: relative; z-index: 2; }
+.hero-tagline { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--nr-yellow); margin-bottom: 28px; display: flex; align-items: center; gap: 12px; }
+.hero-tagline .pulse-dot { width: 8px; height: 8px; background: var(--nr-pink); border-radius: 50%; animation: pulseDot 2s ease-in-out infinite; }
+@keyframes pulseDot { 0%, 100% { box-shadow: 0 0 0 0 rgba(230, 0, 125, 0.4); } 50% { box-shadow: 0 0 0 12px transparent; } }
+.hero h1 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(44px, 9vw, 88px); text-transform: uppercase; line-height: 0.95; letter-spacing: 3px; margin-bottom: 32px; }
+.hero h1 .c-lime { color: var(--nr-lime); }
+.hero h1 .c-pink { color: var(--nr-pink); }
+.hero h1 .c-yellow { color: var(--nr-yellow); }
+.hero h1 .c-blue { color: var(--nr-blue); }
+.hero-desc { font-size: 18px; color: var(--text-secondary); max-width: 540px; line-height: 1.7; font-weight: 300; margin-bottom: 48px; }
+.hero-cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
+.btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; background: var(--nr-pink); color: var(--nr-white); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; border: none; cursor: pointer; transition: all 0.3s ease; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(230, 0, 125, 0.35); }
+.btn-secondary { display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; background: transparent; color: var(--nr-white); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; border: 1px solid var(--border-hover); cursor: pointer; transition: all 0.3s ease; }
+.btn-secondary:hover { border-color: var(--nr-blue); color: var(--nr-blue); }
+
+/* Color bar */
+.color-bar { display: flex; height: 4px; }
+.color-bar span { flex: 1; }
+.cb-lime { background: var(--nr-lime); }
+.cb-pink { background: var(--nr-pink); }
+.cb-yellow { background: var(--nr-yellow); }
+.cb-blue { background: var(--nr-blue); }
+
+/* Ticker */
+.ticker-wrap { overflow: hidden; padding: 18px 0; background: var(--bg-dark); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.ticker { display: flex; animation: ticker 30s linear infinite; width: max-content; }
+@keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.ticker-item { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 3px; color: var(--text-muted); white-space: nowrap; padding: 0 36px; display: flex; align-items: center; gap: 36px; }
+.ticker-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.td-lime { background: var(--nr-lime); }
+.td-pink { background: var(--nr-pink); }
+.td-yellow { background: var(--nr-yellow); }
+.td-blue { background: var(--nr-blue); }
+
+/* Stats */
+.stats-bar { padding: 60px 0; background: var(--bg-dark); }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+.stat-item { text-align: center; padding: 20px; position: relative; }
+.stat-item:not(:last-child)::after { content: ''; position: absolute; right: 0; top: 20%; height: 60%; width: 1px; background: var(--border); }
+.stat-number { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(36px, 5vw, 56px); line-height: 1; margin-bottom: 8px; background: linear-gradient(135deg, var(--nr-pink), var(--nr-yellow)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.stat-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); }
+
+/* Services */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 3px; margin-top: 48px; }
+.service-card { background: var(--bg-card); padding: 40px 32px; position: relative; overflow: hidden; transition: all 0.4s ease; border: 1px solid transparent; backdrop-filter: blur(4px); }
+.service-card:hover { background: var(--bg-card-hover); border-color: var(--border-hover); transform: translateY(-4px); }
+.service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 0; transition: height 0.4s ease; }
+.service-card:hover::before { height: 100%; }
+.sc-lime::before { background: var(--nr-lime) !important; }
+.sc-pink::before { background: var(--nr-pink) !important; }
+.sc-yellow::before { background: var(--nr-yellow) !important; }
+.sc-blue::before { background: var(--nr-blue) !important; }
+.service-icon { width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; border-radius: 4px; }
+.si-lime { background: rgba(199, 204, 0, 0.15); color: var(--nr-lime); }
+.si-pink { background: rgba(230, 0, 125, 0.15); color: var(--nr-pink); }
+.si-yellow { background: rgba(251, 176, 59, 0.15); color: var(--nr-yellow); }
+.si-blue { background: rgba(63, 169, 245, 0.15); color: var(--nr-blue); }
+.service-icon svg { width: 26px; height: 26px; }
+.service-card h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 18px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+.service-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+.service-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.service-tag { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; padding: 4px 10px; border: 1px solid var(--border); color: var(--text-muted); }
+
+/* Timeline */
+.timeline { position: relative; margin-top: 48px; padding-left: 48px; }
+.timeline::before { content: ''; position: absolute; left: 18px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--nr-lime), var(--nr-pink), var(--nr-yellow), var(--nr-blue)); }
+.timeline-item { position: relative; padding: 0 0 56px 32px; }
+.timeline-dot { position: absolute; left: -32px; top: 4px; width: 14px; height: 14px; border-radius: 50%; border: 3px solid; background: var(--bg-primary); }
+.timeline-dot.tl-lime { border-color: var(--nr-lime); }
+.timeline-dot.tl-pink { border-color: var(--nr-pink); }
+.timeline-dot.tl-yellow { border-color: var(--nr-yellow); }
+.timeline-dot.tl-blue { border-color: var(--nr-blue); }
+.timeline-phase { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
+.tp-lime { color: var(--nr-lime); }
+.tp-pink { color: var(--nr-pink); }
+.tp-yellow { color: var(--nr-yellow); }
+.tp-blue { color: var(--nr-blue); }
+.timeline-item h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 22px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+.timeline-item p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; max-width: 600px; }
+
+/* Differentiators */
+.diff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 48px; }
+.diff-card { padding: 32px; border: 1px solid var(--border); position: relative; overflow: hidden; transition: all 0.3s ease; background: var(--bg-card); backdrop-filter: blur(4px); }
+.diff-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+.diff-number { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 72px; position: absolute; top: 8px; right: 16px; line-height: 1; opacity: 0.06; color: var(--nr-white); }
+.diff-card h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 16px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+.dc-pink h3 { color: var(--nr-pink); }
+.dc-lime h3 { color: var(--nr-lime); }
+.dc-yellow h3 { color: var(--nr-yellow); }
+.dc-blue h3 { color: var(--nr-blue); }
+.diff-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+
+/* Showcase */
+.showcase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 4px; margin-top: 48px; }
+.showcase-card { background: var(--bg-card); min-height: 260px; display: flex; flex-direction: column; justify-content: flex-end; position: relative; overflow: hidden; transition: all 0.4s ease; }
+.showcase-card:hover { transform: scale(1.01); }
+.showcase-shape { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -60%); opacity: 0.06; }
+.showcase-content { position: relative; padding: 28px; z-index: 2; background: linear-gradient(to top, rgba(26, 22, 72, 0.95) 60%, transparent); }
+.showcase-type { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--nr-pink); margin-bottom: 6px; }
+.showcase-card h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 20px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 4px; }
+.showcase-meta { font-size: 13px; color: var(--text-muted); }
+.showcase-tags { display: flex; gap: 6px; margin-top: 12px; flex-wrap: wrap; }
+.showcase-tags span { font-size: 9px; padding: 3px 8px; border: 1px solid var(--border); color: var(--text-muted); font-family: 'Space Mono', monospace; letter-spacing: 1px; text-transform: uppercase; }
+
+/* Tech */
+.tech-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+.tech-pill { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 1px; padding: 10px 18px; border: 1px solid var(--border); color: var(--text-secondary); transition: all 0.3s ease; }
+.tech-pill:hover { border-color: var(--nr-blue); color: var(--nr-blue); background: rgba(63, 169, 245, 0.08); }
+
+/* CTA */
+.cta-section { padding: 100px 0; text-align: center; position: relative; overflow: hidden; background: var(--bg-dark); }
+.cta-glow { position: absolute; border-radius: 50%; pointer-events: none; filter: blur(80px); }
+.cta-glow.g1 { width: 300px; height: 300px; background: rgba(230, 0, 125, 0.12); top: 10%; left: 20%; }
+.cta-glow.g2 { width: 250px; height: 250px; background: rgba(63, 169, 245, 0.1); bottom: 10%; right: 20%; }
+.cta-content { position: relative; z-index: 2; }
+.cta-section h2 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(32px, 6vw, 60px); text-transform: uppercase; letter-spacing: 3px; line-height: 1.05; margin-bottom: 16px; }
+.cta-desc { font-size: 16px; color: var(--text-secondary); margin-bottom: 40px; max-width: 480px; margin-left: auto; margin-right: auto; }
+.cta-buttons { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 56px; }
+.contact-grid { display: flex; justify-content: center; gap: 56px; flex-wrap: wrap; }
+.contact-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
+.contact-value { font-size: 15px; }
+.contact-value a { color: var(--nr-yellow); text-decoration: none; transition: opacity 0.2s; }
+.contact-value a:hover { opacity: 0.8; }
+
+/* Footer */
+footer { border-top: 1px solid var(--border); padding: 28px 0; }
+.footer-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.footer-copy { font-size: 12px; color: var(--text-muted); }
+.footer-location { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); }
+.section-divider { width: 100%; height: 1px; background: linear-gradient(to right, transparent, var(--border), transparent); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-item:nth-child(2)::after { display: none; }
+  .services-grid { grid-template-columns: 1fr; }
+  .showcase-grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 42px; }
+  .section { padding: 60px 0; }
+  .contact-grid { gap: 28px; flex-direction: column; }
+  .hero-shapes { width: 100%; opacity: 0.04; }
+  .topbar { padding: 16px; }
+  .logo-svg { height: 28px; }
+}
+
+/* Animations */
+.fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+.stagger-5 { transition-delay: 0.5s; }
+.stagger-6 { transition-delay: 0.6s; }
+.stagger-7 { transition-delay: 0.7s; }
+.stagger-8 { transition-delay: 0.8s; }
+/* EVENT PHOTO GRID */
+
+
+.photo-grid img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.photo-grid img:hover {
+  transform: scale(1.05);
+}
+
+.photo-grid img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .photo-grid img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  }
+  .lightbox {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+}
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 150px;
+    gap: 16px;
+  }
+  .big-card {
+  grid-column: span 2;   /* full width */
+  grid-row: span 2;      /* height increase */
+}
+
+
+.lightbox-img {
+  display: block;
+  margin: auto;
+  max-width: 80%;
+  max-height: 80%;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+}
+.gallery-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  height: 100%;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay */
+.gallery-card .overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  color: white;
+}
+
+.gallery-card h3 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.gallery-card p {
+  font-size: 12px;
+  opacity: 0.7;
+}
+</style>
+</head>
+<body>
+<div class="brand-pattern-bg"></div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <img src="images/logo.png" class="logo-svg">
+  <div class="topbar-tag">Est. Bangalore</div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-shapes">
+    <div class="hero-shape s1"></div>
+    <div class="hero-shape s2"></div>
+    <div class="hero-shape s3"></div>
+    <div class="hero-shape s4"></div>
+  </div>
+  <div class="container hero-content">
+    <div class="hero-tagline"><span class="pulse-dot"></span>Race Technology & Event Management</div>
+    <h1>YOUR RACE.<br>OUR <span class="c-pink">TECH</span><span class="c-yellow">NO</span><span class="c-blue">LO</span><span class="c-lime">GY.</span><br>THEIR BEST<br>EXPERIENCE.</h1>
+    <p class="hero-desc">India's leading end-to-end race technology partner. From the first registration click to the last finisher's medal — we power every moment of race day and beyond.</p>
+    <div class="hero-cta-row">
+      <a href="mailto:hello@novarace.in" class="btn-primary">Partner With Us <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="#services" class="btn-secondary">Explore Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- COLOR BAR -->
+<div class="color-bar"><span class="cb-lime"></span><span class="cb-pink"></span><span class="cb-yellow"></span><span class="cb-blue"></span></div>
+
+<!-- TICKER -->
+<div class="ticker-wrap"><div class="ticker">
+  <span class="ticker-item">Marathons <span class="ticker-dot td-lime"></span></span>
+  <span class="ticker-item">Half Marathons <span class="ticker-dot td-pink"></span></span>
+  <span class="ticker-item">Ultra Runs <span class="ticker-dot td-yellow"></span></span>
+  <span class="ticker-item">Trail Runs <span class="ticker-dot td-blue"></span></span>
+  <span class="ticker-item">Triathlons <span class="ticker-dot td-lime"></span></span>
+  <span class="ticker-item">Cycling Events <span class="ticker-dot td-pink"></span></span>
+  <span class="ticker-item">UCI Road Races <span class="ticker-dot td-yellow"></span></span>
+  <span class="ticker-item">Stadium Runs <span class="ticker-dot td-blue"></span></span>
+  <span class="ticker-item">Corporate Runs <span class="ticker-dot td-lime"></span></span>
+  <span class="ticker-item">Obstacle Races <span class="ticker-dot td-pink"></span></span>
+  <span class="ticker-item">Marathons <span class="ticker-dot td-lime"></span></span>
+  <span class="ticker-item">Half Marathons <span class="ticker-dot td-pink"></span></span>
+  <span class="ticker-item">Ultra Runs <span class="ticker-dot td-yellow"></span></span>
+  <span class="ticker-item">Trail Runs <span class="ticker-dot td-blue"></span></span>
+  <span class="ticker-item">Triathlons <span class="ticker-dot td-lime"></span></span>
+  <span class="ticker-item">Cycling Events <span class="ticker-dot td-pink"></span></span>
+  <span class="ticker-item">UCI Road Races <span class="ticker-dot td-yellow"></span></span>
+  <span class="ticker-item">Stadium Runs <span class="ticker-dot td-blue"></span></span>
+  <span class="ticker-item">Corporate Runs <span class="ticker-dot td-lime"></span></span>
+  <span class="ticker-item">Obstacle Races <span class="ticker-dot td-pink"></span></span>
+</div></div>
+
+<!-- STATS -->
+<section class="stats-bar"><div class="container"><div class="stats-grid">
+  <div class="stat-item fade-in"><div class="stat-number">500+</div><div class="stat-label">Events Powered</div></div>
+  <div class="stat-item fade-in stagger-1"><div class="stat-number">10L+</div><div class="stat-label">Participants Timed</div></div>
+  <div class="stat-item fade-in stagger-2"><div class="stat-number">15+</div><div class="stat-label">Events / Weekend</div></div>
+  <div class="stat-item fade-in stagger-3"><div class="stat-number">40+</div><div class="stat-label">Cities Covered</div></div>
+</div></div></section>
+
+<!-- SERVICES -->
+<section class="section" id="services"><div class="container">
+  <div class="section-label fade-in">What We Do</div>
+  <h2 class="section-title fade-in">End-to-End Race<br>Technology Stack</h2>
+  <p class="fade-in" style="color: var(--text-secondary); max-width: 600px; font-size: 15px;">We don't just provide a service — we become your race's technology backbone. One partner, every touchpoint, zero gaps.</p>
+  <div class="services-grid">
+    <div class="service-card sc-pink fade-in">
+      <div class="service-icon si-pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+      <h3>Registration Platform</h3>
+      <p>Custom-branded event pages with seamless multi-category registration, dynamic pricing tiers, coupon management, and real-time dashboards. Integrated with PayU &amp; Razorpay.</p>
+      <div class="service-tags"><span class="service-tag">Custom Landing Pages</span><span class="service-tag">Multi-Category</span><span class="service-tag">Payment Gateway</span></div>
+    </div>
+    <div class="service-card sc-lime fade-in stagger-1">
+      <div class="service-icon si-lime"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 15V9M12 15V9M17 15V9"/></svg></div>
+      <h3>BIB Printing & Race Expo</h3>
+      <p>Professional BIB printing with series management, pre-print and late-allocation models. Tablet-optimised Expo distribution with real-time search and duplicate prevention.</p>
+      <div class="service-tags"><span class="service-tag">BIB Series Mgmt</span><span class="service-tag">Expo Scanning</span><span class="service-tag">Audit Logs</span></div>
+    </div>
+    <div class="service-card sc-yellow fade-in stagger-2">
+      <div class="service-icon si-yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+      <h3>Chip Timing</h3>
+      <p>Millisecond-accurate chip timing using RaceResult hardware — active and passive RFID systems, decoder arrays, timing mats, and trackboxes. From 5K fun runs to UCI 2.2 stage races.</p>
+      <div class="service-tags"><span class="service-tag">RaceResult</span><span class="service-tag">RFID</span><span class="service-tag">Split Timing</span><span class="service-tag">UCI Compliant</span></div>
+    </div>
+    <div class="service-card sc-blue fade-in stagger-3">
+      <div class="service-icon si-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 017 7c0 5.25-7 13-7 13S5 14.25 5 9a7 7 0 017-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+      <h3>Live Tracking</h3>
+      <p>Real-time participant tracking streamed to spectators' browsers within 2–4 seconds of chip detection. Split-time breakdowns, pace calculations, and projected finish times.</p>
+      <div class="service-tags"><span class="service-tag">2-4s Latency</span><span class="service-tag">WebSocket</span><span class="service-tag">Spectator View</span></div>
+    </div>
+    <div class="service-card sc-pink fade-in stagger-4">
+      <div class="service-icon si-pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 010-5C7 4 7 7 7 7"/><path d="M18 9h1.5a2.5 2.5 0 000-5C17 4 17 7 17 7"/><path d="M4 22h16"/><path d="M10 22V10M14 22V10"/><rect x="6" y="7" width="12" height="5" rx="1"/></svg></div>
+      <h3>Results & Leaderboards</h3>
+      <p>Instant race results with category-wise leaderboards, individual shareable pages, age-group rankings, and team classifications. Supporting marathon, triathlon, relay, and ultra formats.</p>
+      <div class="service-tags"><span class="service-tag">Instant Publish</span><span class="service-tag">Multi-Format</span><span class="service-tag">Social Sharing</span></div>
+    </div>
+    <div class="service-card sc-lime fade-in stagger-5">
+      <div class="service-icon si-lime"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+      <h3>Finisher Photos & Certificates</h3>
+      <p>Auto-tagged finisher photos matched to BIB numbers. Personalised finisher certificates and badges generated at scale — handling 500–1000 concurrent finishers.</p>
+      <div class="service-tags"><span class="service-tag">BIB Matching</span><span class="service-tag">Auto Certificates</span><span class="service-tag">Async Generation</span></div>
+    </div>
+    <div class="service-card sc-yellow fade-in stagger-6">
+      <div class="service-icon si-yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+      <h3>Participant Communications</h3>
+      <p>Multi-channel outreach via Email, SMS, and WhatsApp — with variable substitution, segment targeting, and scheduled campaigns. Pre-race, race-day, and post-race, all covered.</p>
+      <div class="service-tags"><span class="service-tag">Email</span><span class="service-tag">SMS</span><span class="service-tag">WhatsApp</span><span class="service-tag">Campaigns</span></div>
+    </div>
+    <div class="service-card sc-blue fade-in stagger-7">
+      <div class="service-icon si-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+      <h3>Revenue & Settlements</h3>
+      <p>Transparent financial reporting with waterfall breakdowns — gateway fees, platform charges, add-on revenue, and net settlement. Real-time reconciliation.</p>
+      <div class="service-tags"><span class="service-tag">Reconciliation</span><span class="service-tag">Waterfall Reports</span><span class="service-tag">Real-time</span></div>
+    </div>
+    <div class="service-card sc-pink fade-in stagger-8">
+      <div class="service-icon si-pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
+      <h3>Organiser Dashboard</h3>
+      <p>Self-service organiser platform with event creation wizard, live registration monitoring, marketing analytics, participant CRM, and cross-event insights. You trigger, NovaRace delivers.</p>
+      <div class="service-tags"><span class="service-tag">Self-Service</span><span class="service-tag">Analytics</span><span class="service-tag">CRM</span><span class="service-tag">Multi-Event</span></div>
+    </div>
+  </div>
+</div></section>
+
+<div class="color-bar"><span class="cb-blue"></span><span class="cb-yellow"></span><span class="cb-pink"></span><span class="cb-lime"></span></div>
+
+<!-- TIMELINE -->
+<section class="section"><div class="container">
+  <div class="section-label fade-in">Race Lifecycle</div>
+  <h2 class="section-title fade-in">One Partner.<br>Every Phase.</h2>
+  <div class="timeline">
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot tl-lime"></div>
+      <div class="timeline-phase tp-lime">Phase 01 — Pre-Race</div>
+      <h3>Plan & Register</h3>
+      <p>Event page setup, registration configuration, category design, pricing strategy, coupon management, and marketing campaign infrastructure. Zero to live in days, not weeks.</p>
+    </div>
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot tl-pink"></div>
+      <div class="timeline-phase tp-pink">Phase 02 — Race Week</div>
+      <h3>Expo & Logistics</h3>
+      <p>BIB printing, race kit assembly, expo venue setup with tablet-based distribution, volunteer training, equipment transport and deployment. Every detail, executed.</p>
+    </div>
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot tl-yellow"></div>
+      <div class="timeline-phase tp-yellow">Phase 03 — Race Day</div>
+      <h3>Timing & Tracking</h3>
+      <p>Chip timing deployment, decoder configuration, live tracking streams, start-line wave management, on-course split timing, and finish-line detection. Millisecond precision.</p>
+    </div>
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot tl-blue"></div>
+      <div class="timeline-phase tp-blue">Phase 04 — Post-Race</div>
+      <h3>Results & Legacy</h3>
+      <p>Instant results publishing, finisher certificates and badges, photo tagging, participant communications, settlement reports, and analytics for your next event.</p>
+    </div>
+  </div>
+</div></section>
+
+<div class="section-divider"></div>
+
+<!-- WHY NOVARACE -->
+<section class="section"><div class="container">
+  <div class="section-label fade-in">The Nova Race Edge</div>
+  <h2 class="section-title fade-in">Why Race Organisers<br>Choose Us</h2>
+  <div class="diff-grid">
+    <div class="diff-card dc-pink fade-in"><div class="diff-number">01</div><h3>Single Source of Truth</h3><p>One unified database powers every touchpoint — registration, BIB printing, timing, results, communications, and settlements. No CSV exports, no manual syncing, no data silos.</p></div>
+    <div class="diff-card dc-lime fade-in stagger-1"><div class="diff-number">02</div><h3>Battle-Tested at Scale</h3><p>We run 10–15 events every single weekend across India. Our systems handle registration bursts, concurrent timing, and thousands of finisher certificates — without flinching.</p></div>
+    <div class="diff-card dc-yellow fade-in stagger-2"><div class="diff-number">03</div><h3>India-First, Built for India</h3><p>WhatsApp communications, PayU/Razorpay payments, BIB OCR via camera, and offline-first race day tools. We understand Indian runners because we live it.</p></div>
+    <div class="diff-card dc-blue fade-in stagger-3"><div class="diff-number">04</div><h3>End-to-End Ownership</h3><p>One contract, one team, one point of contact. No finger-pointing between vendors. We own the entire experience — start to finish.</p></div>
+    <div class="diff-card dc-pink fade-in stagger-4"><div class="diff-number">05</div><h3>Organiser Intelligence</h3><p>Cross-event analytics, registration trend forecasting, marketing performance data, and revenue optimisation — turning every race into a learning engine for the next.</p></div>
+    <div class="diff-card dc-lime fade-in stagger-5"><div class="diff-number">06</div><h3>UCI-Grade Precision</h3><p>From grassroots 5K fun runs to UCI 2.2 international cycling stage races — our timing systems and reporting meet the most demanding international standards.</p></div>
+  </div>
+</div></section>
+
+<div class="section-divider"></div>
+
+<!-- PORTFOLIO -->
+<section class="section"><div class="container">
+  <div class="section-label fade-in">Portfolio</div>
+  <h2 class="section-title fade-in">Events That<br>Trust Nova Race</h2>
+  <div class="showcase-grid">
+    <div class="showcase-card fade-in">
+      <div class="showcase-shape"><svg width="140" height="140"><circle cx="70" cy="70" r="70" fill="#E6007D"/></svg></div>
+      <div class="showcase-content">
+        <div class="showcase-type">City Marathon</div>
+        <h3>Bengaluru City Marathon</h3>
+        <div class="showcase-meta">Full Marathon · Half Marathon · 10K · 5K</div>
+        <div class="showcase-tags"><span>Registration</span><span>Timing</span><span>Results</span><span>Live Tracking</span></div>
+      </div>
+    </div>
+    <div class="showcase-card fade-in stagger-1">
+      <div class="showcase-shape"><svg width="140" height="140"><polygon points="70,0 140,140 0,140" fill="#FBB03B"/></svg></div>
+      <div class="showcase-content">
+        <div class="showcase-type">UCI 2.2 Stage Race</div>
+        <h3>Bajaj Pune Grand Tour</h3>
+        <div class="showcase-meta">Pro Cycling · Multi-Stage · International</div>
+        <div class="showcase-tags"><span>UCI Timing</span><span>Stage Results</span><span>KOM/Sprint</span></div>
+      </div>
+    </div>
+    <div class="showcase-card fade-in stagger-2">
+      <div class="showcase-shape"><svg width="140" height="140"><polygon points="70,140 140,0 0,0" fill="#3FA9F5"/></svg></div>
+      <div class="showcase-content">
+        <div class="showcase-type">Community Marathon</div>
+        <h3>Sivagiri Marathon</h3>
+        <div class="showcase-meta">Tamil Nadu · By the Runners, For the Runners</div>
+        <div class="showcase-tags"><span>Full Stack</span><span>Branding</span><span>Comms</span></div>
+      </div>
+    </div>
+    <div class="showcase-card fade-in stagger-3">
+      <div class="showcase-shape"><svg width="100" height="100"><rect width="100" height="100" fill="#C7CC00" transform="rotate(45 50 50)"/></svg></div>
+      <div class="showcase-content">
+        <div class="showcase-type">Multi-City Series</div>
+        <h3>Weekend Warrior Events</h3>
+        <div class="showcase-meta">10–15 events every weekend across India</div>
+        <div class="showcase-tags"><span>Scale</span><span>Consistency</span><span>Reliability</span></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<div class="section-divider"></div>
+
+<!-- TECH -->
+<section class="section"><div class="container">
+  <div class="section-label fade-in">Under the Hood</div>
+  <h2 class="section-title fade-in">Built With<br>Serious Tech</h2>
+  <p class="fade-in" style="color: var(--text-secondary); max-width: 560px; font-size: 15px;">Our stack is built for reliability at scale — because on race day, there's no "try again later."</p>
+  <div class="tech-row fade-in">
+    <span class="tech-pill">Node.js</span><span class="tech-pill">PostgreSQL</span><span class="tech-pill">Redis</span><span class="tech-pill">BullMQ</span><span class="tech-pill">AWS (ap-south-1)</span><span class="tech-pill">RaceResult Hardware</span><span class="tech-pill">Socket.io</span><span class="tech-pill">React</span><span class="tech-pill">Next.js</span><span class="tech-pill">PayU / Razorpay</span><span class="tech-pill">ZeptoMail</span><span class="tech-pill">WhatsApp API</span><span class="tech-pill">ECS Fargate</span><span class="tech-pill">CloudFront CDN</span>
+  </div>
+</div></section>
+
+<div class="color-bar"><span class="cb-lime"></span><span class="cb-pink"></span><span class="cb-yellow"></span><span class="cb-blue"></span></div>
+
+<!-- EVENT PHOTOS -->
+<section class="section">
+  <div class="container">
+    <div class="section-label fade-in">Event Gallery</div>
+    <h2 class="section-title fade-in">Race Day<br>Moments</h2>
+
+    <div id="photo-gallery" class="photo-grid"></div>
+  </div>
+</section>
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-glow g1"></div><div class="cta-glow g2"></div>
+  <div class="container cta-content">
+    <div class="section-label fade-in" style="justify-content: center;">Let's Talk</div>
+    <h2 class="fade-in">READY TO POWER<br>YOUR <span style="color: var(--nr-pink);">NEXT RACE?</span></h2>
+    <p class="cta-desc fade-in">Whether it's a 500-person community run or a 50,000-participant city marathon — we've got the tech, the team, and the track record.</p>
+    <div class="cta-buttons fade-in">
+      <a href="mailto:hello@novarace.in" class="btn-primary">Email Us <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="tel:+919XXXXXXXXX" class="btn-secondary">Call Now</a>
+    </div>
+    <div class="contact-grid fade-in">
+      <div><div class="contact-label">Email</div><div class="contact-value"><a href="mailto:hello@novarace.in">hello@novarace.in</a></div></div>
+      <div><div class="contact-label">Phone</div><div class="contact-value"><a href="tel:+919XXXXXXXXX">+91 9XXX XXX XXX</a></div></div>
+      <div><div class="contact-label">Location</div><div class="contact-value">Bangalore, India</div></div>
+      <div><div class="contact-label">Website</div><div class="contact-value"><a href="https://novarace.in" target="_blank">novarace.in</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer><div class="container"><div class="footer-row">
+  <img src="images/logo.png" style="height: 40px;">
+  <div class="footer-copy">&copy; 2026 Nova Race. All rights reserved.</div>
+  <div class="footer-location">Bangalore, IN</div>
+</div></div></footer>
+
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-img" id="lightbox-img">
+</div>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+ const images = [
+  {
+    src: "images/event1.jpg",
+    title: "Finish Line Setup",
+    subtitle: "Replace with event photo"
+  },
+  {
+    src: "images/event2.jpg",
+    title: "Timing Station",
+    subtitle: "Replace with photo"
+  },
+  {
+    src: "images/event3.jpg",
+    title: "Start Line",
+    subtitle: "Replace with photo"
+  },
+  {
+    src: "images/event4.jpg",
+    title: "Race Expo",
+    subtitle: "Replace with photo"
+  },
+  {
+    src: "images/event5.jpg",
+    title: "Cycling Event",
+    subtitle: "Replace with photo"
+  }
+];
+
+const gallery = document.getElementById("photo-gallery");
+images.forEach((item, index) => {
+  const card = document.createElement("div");
+  card.classList.add("gallery-card");
+
+  if (index === 0) {
+    card.classList.add("big-card");
+  }
+
+  card.innerHTML = `
+    <img src="${item.src}" />
+    <div class="overlay">
+      <h3>${item.title}</h3>
+    </div>
+  `;
+
+  gallery.appendChild(card);
+});
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const closeBtn = document.querySelector(".close");
+
+
+
+closeBtn.onclick = () => {
+  lightbox.style.display = "none";
+};
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => { e.preventDefault(); const t = document.querySelector(a.getAttribute('href')); if (t) t.scrollIntoView({ behavior: 'smooth' }); });
+});
+
+</script>
+</body>
+</html>
