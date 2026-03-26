@@ -17,8 +17,6 @@
   --nr-violet: #282462;
   --nr-violet-deep: #1e1a4e;
   --nr-violet-light: #342f78;
-  --nr-black: #333333;
-  --nr-gray: #606060;
   --nr-white: #FCFCFC;
   --bg-primary: #282462;
   --bg-dark: #1a1648;
@@ -38,35 +36,16 @@ body { background: var(--bg-primary); color: var(--text-primary); font-family: '
 .section-label { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--nr-pink); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
 .section-label::before { content: ''; width: 24px; height: 1px; background: var(--nr-pink); }
 .section-title { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(32px, 5vw, 48px); text-transform: uppercase; letter-spacing: 3px; line-height: 1.1; margin-bottom: 20px; }
+.section-subtitle { font-size: 15px; color: var(--text-secondary); max-width: 600px; line-height: 1.7; }
 
-/* Brand pattern */
 .brand-pattern-bg { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='10' y='10' width='35' height='35' fill='%23C7CC00' transform='rotate(45 27 27)'/%3E%3Ccircle cx='100' cy='30' r='18' fill='%23E6007D'/%3E%3Cpolygon points='155,10 175,45 135,45' fill='%23FBB03B'/%3E%3Cpolygon points='50,140 70,105 30,105' fill='%233FA9F5'/%3E%3Ccircle cx='170' cy='150' r='14' fill='%23E6007D'/%3E%3Cpolygon points='100,170 120,200 80,200' fill='%233FA9F5'/%3E%3Crect x='140' y='90' width='25' height='25' fill='%23C7CC00' transform='rotate(45 152 102)'/%3E%3C/svg%3E"); background-size: 200px 200px; }
 
 /* Topbar */
-.topbar { position: fixed; top: 0; left: 0; right: 0; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; z-index: 100; background: linear-gradient(to bottom, var(--bg-dark), transparent); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.topbar { position: fixed; top: 0; left: 0; right: 0; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; z-index: 100; background: linear-gradient(to bottom, var(--bg-dark) 60%, transparent); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
 .logo-svg { height: 36px; width: auto; }
 .topbar-tag { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); border: 1px solid var(--border); padding: 6px 14px; }
 
-/* Hero */
-.hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; position: relative; padding: 120px 0 60px; overflow: hidden; }
-.hero-shapes { position: absolute; top: 0; right: 0; bottom: 0; width: 50%; pointer-events: none; overflow: hidden; }
-.hero-shape { position: absolute; opacity: 0.08; animation: floatShape 8s ease-in-out infinite; }
-.hero-shape.s1 { top: 10%; right: 5%; width: 180px; height: 180px; background: var(--nr-lime); clip-path: polygon(0 0, 100% 0, 0 100%); }
-.hero-shape.s2 { top: 35%; right: 25%; width: 140px; height: 140px; background: var(--nr-pink); border-radius: 50%; animation-delay: 2s; }
-.hero-shape.s3 { top: 60%; right: 10%; width: 160px; height: 160px; background: var(--nr-yellow); clip-path: polygon(50% 0, 100% 100%, 0 100%); animation-delay: 4s; }
-.hero-shape.s4 { top: 20%; right: 45%; width: 120px; height: 120px; background: var(--nr-blue); clip-path: polygon(50% 100%, 100% 0, 0 0); animation-delay: 1s; }
-@keyframes floatShape { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-20px) rotate(3deg); } }
-.hero-content { position: relative; z-index: 2; }
-.hero-tagline { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--nr-yellow); margin-bottom: 28px; display: flex; align-items: center; gap: 12px; }
-.hero-tagline .pulse-dot { width: 8px; height: 8px; background: var(--nr-pink); border-radius: 50%; animation: pulseDot 2s ease-in-out infinite; }
-@keyframes pulseDot { 0%, 100% { box-shadow: 0 0 0 0 rgba(230, 0, 125, 0.4); } 50% { box-shadow: 0 0 0 12px transparent; } }
-.hero h1 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(44px, 9vw, 88px); text-transform: uppercase; line-height: 0.95; letter-spacing: 3px; margin-bottom: 32px; }
-.hero h1 .c-lime { color: var(--nr-lime); }
-.hero h1 .c-pink { color: var(--nr-pink); }
-.hero h1 .c-yellow { color: var(--nr-yellow); }
-.hero h1 .c-blue { color: var(--nr-blue); }
-.hero-desc { font-size: 18px; color: var(--text-secondary); max-width: 540px; line-height: 1.7; font-weight: 300; margin-bottom: 48px; }
-.hero-cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
+/* Buttons */
 .btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; background: var(--nr-pink); color: var(--nr-white); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; border: none; cursor: pointer; transition: all 0.3s ease; }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(230, 0, 125, 0.35); }
 .btn-secondary { display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; background: transparent; color: var(--nr-white); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; border: 1px solid var(--border-hover); cursor: pointer; transition: all 0.3s ease; }
@@ -79,6 +58,28 @@ body { background: var(--bg-primary); color: var(--text-primary); font-family: '
 .cb-pink { background: var(--nr-pink); }
 .cb-yellow { background: var(--nr-yellow); }
 .cb-blue { background: var(--nr-blue); }
+.section-divider { width: 100%; height: 1px; background: linear-gradient(to right, transparent, var(--border), transparent); }
+
+/* Hero */
+.hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; position: relative; padding: 120px 0 60px; overflow: hidden; }
+.hero-shapes { position: absolute; top: 0; right: 0; bottom: 0; width: 50%; pointer-events: none; overflow: hidden; }
+.hero-shape { position: absolute; opacity: 0.08; animation: floatShape 8s ease-in-out infinite; }
+.hero-shape.s1 { top: 10%; right: 5%; width: 180px; height: 180px; background: var(--nr-lime); clip-path: polygon(0 0, 100% 0, 0 100%); }
+.hero-shape.s2 { top: 35%; right: 25%; width: 140px; height: 140px; background: var(--nr-pink); border-radius: 50%; animation-delay: 2s; }
+.hero-shape.s3 { top: 60%; right: 10%; width: 160px; height: 160px; background: var(--nr-yellow); clip-path: polygon(50% 0, 100% 100%, 0 100%); animation-delay: 4s; }
+.hero-shape.s4 { top: 20%; right: 45%; width: 120px; height: 120px; background: var(--nr-blue); clip-path: polygon(50% 100%, 100% 0, 0 0); animation-delay: 1s; }
+@keyframes floatShape { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-20px) rotate(3deg); } }
+.hero-content { position: relative; z-index: 2; }
+.hero-tagline { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--nr-yellow); margin-bottom: 28px; display: flex; align-items: center; gap: 12px; }
+.pulse-dot { width: 8px; height: 8px; background: var(--nr-pink); border-radius: 50%; animation: pulseDot 2s ease-in-out infinite; }
+@keyframes pulseDot { 0%, 100% { box-shadow: 0 0 0 0 rgba(230, 0, 125, 0.4); } 50% { box-shadow: 0 0 0 12px transparent; } }
+.hero h1 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(44px, 9vw, 88px); text-transform: uppercase; line-height: 0.95; letter-spacing: 3px; margin-bottom: 32px; }
+.c-lime { color: var(--nr-lime); }
+.c-pink { color: var(--nr-pink); }
+.c-yellow { color: var(--nr-yellow); }
+.c-blue { color: var(--nr-blue); }
+.hero-desc { font-size: 18px; color: var(--text-secondary); max-width: 540px; line-height: 1.7; font-weight: 300; margin-bottom: 48px; }
+.hero-cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
 
 /* Ticker */
 .ticker-wrap { overflow: hidden; padding: 18px 0; background: var(--bg-dark); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
@@ -125,10 +126,10 @@ body { background: var(--bg-primary); color: var(--text-primary); font-family: '
 .timeline::before { content: ''; position: absolute; left: 18px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--nr-lime), var(--nr-pink), var(--nr-yellow), var(--nr-blue)); }
 .timeline-item { position: relative; padding: 0 0 56px 32px; }
 .timeline-dot { position: absolute; left: -32px; top: 4px; width: 14px; height: 14px; border-radius: 50%; border: 3px solid; background: var(--bg-primary); }
-.timeline-dot.tl-lime { border-color: var(--nr-lime); }
-.timeline-dot.tl-pink { border-color: var(--nr-pink); }
-.timeline-dot.tl-yellow { border-color: var(--nr-yellow); }
-.timeline-dot.tl-blue { border-color: var(--nr-blue); }
+.tl-lime { border-color: var(--nr-lime); }
+.tl-pink { border-color: var(--nr-pink); }
+.tl-yellow { border-color: var(--nr-yellow); }
+.tl-blue { border-color: var(--nr-blue); }
 .timeline-phase { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
 .tp-lime { color: var(--nr-lime); }
 .tp-pink { color: var(--nr-pink); }
@@ -149,17 +150,71 @@ body { background: var(--bg-primary); color: var(--text-primary); font-family: '
 .dc-blue h3 { color: var(--nr-blue); }
 .diff-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
 
-/* Showcase */
-.showcase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 4px; margin-top: 48px; }
-.showcase-card { background: var(--bg-card); min-height: 260px; display: flex; flex-direction: column; justify-content: flex-end; position: relative; overflow: hidden; transition: all 0.4s ease; }
-.showcase-card:hover { transform: scale(1.01); }
-.showcase-shape { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -60%); opacity: 0.06; }
-.showcase-content { position: relative; padding: 28px; z-index: 2; background: linear-gradient(to top, rgba(26, 22, 72, 0.95) 60%, transparent); }
-.showcase-type { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--nr-pink); margin-bottom: 6px; }
-.showcase-card h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 20px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 4px; }
-.showcase-meta { font-size: 13px; color: var(--text-muted); }
-.showcase-tags { display: flex; gap: 6px; margin-top: 12px; flex-wrap: wrap; }
-.showcase-tags span { font-size: 9px; padding: 3px 8px; border: 1px solid var(--border); color: var(--text-muted); font-family: 'Space Mono', monospace; letter-spacing: 1px; text-transform: uppercase; }
+/* Event Cards */
+.event-cards { display: flex; flex-direction: column; gap: 24px; margin-top: 48px; }
+.event-card { background: var(--bg-card); border: 1px solid var(--border); backdrop-filter: blur(4px); overflow: hidden; transition: all 0.4s ease; }
+.event-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+.event-card-top { display: flex; align-items: stretch; }
+.event-header { flex: 0 0 280px; padding: 36px 32px; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
+.eh-pink { background: linear-gradient(135deg, rgba(230,0,125,0.12), transparent); }
+.eh-blue { background: linear-gradient(135deg, rgba(63,169,245,0.12), transparent); }
+.eh-yellow { background: linear-gradient(135deg, rgba(251,176,59,0.12), transparent); }
+.eh-lime { background: linear-gradient(135deg, rgba(199,204,0,0.12), transparent); }
+.event-type { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
+.event-header h3 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 22px; text-transform: uppercase; letter-spacing: 2px; line-height: 1.15; }
+.event-scale { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--text-muted); margin-top: 8px; }
+.event-body { flex: 1; padding: 36px 32px; display: flex; flex-direction: column; gap: 20px; border-left: 1px solid var(--border); }
+.event-services-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
+.event-service-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.event-pill { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; padding: 6px 16px; border-radius: 2px; background: rgba(252, 252, 252, 0.06); color: var(--text-secondary); border: 1px solid var(--border); }
+.event-special-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--nr-yellow); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.event-special-label::before { content: '★'; }
+.special-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.special-list li { font-size: 13px; color: var(--text-secondary); padding-left: 16px; position: relative; line-height: 1.5; }
+.special-list li::before { content: ''; position: absolute; left: 0; top: 7px; width: 6px; height: 6px; border-radius: 50%; }
+.sl-pink li::before { background: var(--nr-pink); }
+.sl-blue li::before { background: var(--nr-blue); }
+.sl-yellow li::before { background: var(--nr-yellow); }
+.sl-lime li::before { background: var(--nr-lime); }
+
+/* Gallery */
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 220px; gap: 8px; margin-top: 48px; }
+.gallery-item { position: relative; overflow: hidden; border-radius: 4px; background: var(--bg-card); cursor: pointer; transition: all 0.4s ease; }
+.gallery-item:hover { transform: scale(1.02); z-index: 2; }
+.gallery-item.gi-wide { grid-column: span 2; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+.gallery-item:hover img { transform: scale(1.05); }
+.gallery-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; }
+.gallery-placeholder .gp-icon { font-size: 36px; margin-bottom: 12px; opacity: 0.2; }
+.gallery-placeholder .gp-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); }
+.gallery-placeholder .gp-sublabel { font-size: 11px; color: var(--text-muted); opacity: 0.5; margin-top: 4px; }
+.gp-pink { background: rgba(230,0,125,0.08); }
+.gp-blue { background: rgba(63,169,245,0.08); }
+.gp-yellow { background: rgba(251,176,59,0.08); }
+.gp-lime { background: rgba(199,204,0,0.08); }
+.gp-violet { background: rgba(52,47,120,0.5); }
+.gi-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px; background: linear-gradient(to top, rgba(26,22,72,0.9), transparent); opacity: 0; transition: opacity 0.3s; }
+.gallery-item:hover .gi-overlay { opacity: 1; }
+.gi-overlay span { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--nr-white); }
+.gallery-note { text-align: center; margin-top: 20px; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); }
+
+/* Testimonials */
+.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 48px; }
+.testimonial-card { background: var(--bg-card); border: 1px solid var(--border); padding: 36px 32px; position: relative; backdrop-filter: blur(4px); transition: all 0.3s ease; }
+.testimonial-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+.testimonial-border-top { height: 3px; position: absolute; top: 0; left: 0; right: 0; }
+.tb-pink { background: var(--nr-pink); }
+.tb-blue { background: var(--nr-blue); }
+.tb-yellow { background: var(--nr-yellow); }
+.testimonial-quote-mark { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 64px; line-height: 1; position: absolute; top: 16px; left: 24px; opacity: 0.08; }
+.testimonial-text { font-size: 15px; color: var(--text-secondary); line-height: 1.8; font-style: italic; margin-bottom: 24px; position: relative; z-index: 1; }
+.testimonial-author { display: flex; align-items: center; gap: 16px; }
+.testimonial-avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 16px; color: var(--nr-white); }
+.ta-pink { background: rgba(230,0,125,0.25); }
+.ta-blue { background: rgba(63,169,245,0.25); }
+.ta-yellow { background: rgba(251,176,59,0.25); }
+.testimonial-name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; }
+.testimonial-role { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
 
 /* Tech */
 .tech-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
@@ -186,20 +241,23 @@ footer { border-top: 1px solid var(--border); padding: 28px 0; }
 .footer-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
 .footer-copy { font-size: 12px; color: var(--text-muted); }
 .footer-location { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); }
-.section-divider { width: 100%; height: 1px; background: linear-gradient(to right, transparent, var(--border), transparent); }
 
 /* Responsive */
 @media (max-width: 768px) {
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .stat-item:nth-child(2)::after { display: none; }
-  .services-grid { grid-template-columns: 1fr; }
-  .showcase-grid { grid-template-columns: 1fr; }
+  .services-grid, .testimonials-grid { grid-template-columns: 1fr; }
   .hero h1 { font-size: 42px; }
   .section { padding: 60px 0; }
   .contact-grid { gap: 28px; flex-direction: column; }
   .hero-shapes { width: 100%; opacity: 0.04; }
   .topbar { padding: 16px; }
   .logo-svg { height: 28px; }
+  .event-card-top { flex-direction: column; }
+  .event-header { flex: none; }
+  .event-body { border-left: none; border-top: 1px solid var(--border); }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-item.gi-wide { grid-column: span 1; }
 }
 
 /* Animations */
@@ -213,113 +271,14 @@ footer { border-top: 1px solid var(--border); padding: 28px 0; }
 .stagger-6 { transition-delay: 0.6s; }
 .stagger-7 { transition-delay: 0.7s; }
 .stagger-8 { transition-delay: 0.8s; }
-/* EVENT PHOTO GRID */
-
-
-.photo-grid img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
-}
-
-.photo-grid img:hover {
-  transform: scale(1.05);
-}
-
-.photo-grid img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .photo-grid img:hover {
-    transform: scale(1.08);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-  }
-  .lightbox {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  padding-top: 60px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.9);
-}
-.photo-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 150px;
-    gap: 16px;
-  }
-  .big-card {
-  grid-column: span 2;   /* full width */
-  grid-row: span 2;      /* height increase */
-}
-
-
-.lightbox-img {
-  display: block;
-  margin: auto;
-  max-width: 80%;
-  max-height: 80%;
-}
-
-.close {
-  position: absolute;
-  top: 20px;
-  right: 40px;
-  color: white;
-  font-size: 40px;
-  cursor: pointer;
-}
-.gallery-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-  height: 100%;
-}
-
-.gallery-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Overlay */
-.gallery-card .overlay {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding: 20px;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-  color: white;
-}
-
-.gallery-card h3 {
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.gallery-card p {
-  font-size: 12px;
-  opacity: 0.7;
-}
 </style>
 </head>
 <body>
-  
 <div class="brand-pattern-bg"></div>
 
 <!-- TOPBAR -->
 <div class="topbar">
-  <img src="logo.png" class="logo-svg">
+  <img src="logo.png" class="logo-svg" alt="Nova Race">
   <div class="topbar-tag">Est. Bangalore</div>
 </div>
 
@@ -332,17 +291,16 @@ footer { border-top: 1px solid var(--border); padding: 28px 0; }
     <div class="hero-shape s4"></div>
   </div>
   <div class="container hero-content">
-    <div class="hero-tagline"><span class="pulse-dot"></span>Race Technology & Event Management</div>
+    <div class="hero-tagline"><span class="pulse-dot"></span>Race Technology &amp; Event Management</div>
     <h1>YOUR RACE.<br>OUR <span class="c-pink">TECH</span><span class="c-yellow">NO</span><span class="c-blue">LO</span><span class="c-lime">GY.</span><br>THEIR BEST<br>EXPERIENCE.</h1>
     <p class="hero-desc">India's leading end-to-end race technology partner. From the first registration click to the last finisher's medal — we power every moment of race day and beyond.</p>
     <div class="hero-cta-row">
-      <a href="mailto:support@novarace.in" class="btn-primary">Partner With Us <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="mailto:hello@novarace.in" class="btn-primary">Partner With Us <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <a href="#services" class="btn-secondary">Explore Services</a>
     </div>
   </div>
 </section>
 
-<!-- COLOR BAR -->
 <div class="color-bar"><span class="cb-lime"></span><span class="cb-pink"></span><span class="cb-yellow"></span><span class="cb-blue"></span></div>
 
 <!-- TICKER -->
@@ -381,19 +339,19 @@ footer { border-top: 1px solid var(--border); padding: 28px 0; }
 <section class="section" id="services"><div class="container">
   <div class="section-label fade-in">What We Do</div>
   <h2 class="section-title fade-in">End-to-End Race<br>Technology Stack</h2>
-  <p class="fade-in" style="color: var(--text-secondary); max-width: 600px; font-size: 15px;">We don't just provide a service — we become your race's technology backbone. One partner, every touchpoint, zero gaps.</p>
+  <p class="section-subtitle fade-in">We don't just provide a service — we become your race's technology backbone. One partner, every touchpoint, zero gaps.</p>
   <div class="services-grid">
     <div class="service-card sc-pink fade-in">
       <div class="service-icon si-pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
       <h3>Registration Platform</h3>
       <p>Custom-branded event pages with seamless multi-category registration, dynamic pricing tiers, coupon management, and real-time dashboards. Integrated with PayU &amp; Razorpay.</p>
-      <div class="service-tags"><span class="service-tag">Custom Landing Pages</span><span class="service-tag">Multi-Category</span><span class="service-tag">Payment Gateway</span></div>
+      <div class="service-tags"><span class="service-tag">Custom Landing Pages</span><span class="service-tag">Multi-Category</span><span class="service-tag">White-Label</span></div>
     </div>
     <div class="service-card sc-lime fade-in stagger-1">
       <div class="service-icon si-lime"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 15V9M12 15V9M17 15V9"/></svg></div>
-      <h3>BIB Printing & Race Expo</h3>
+      <h3>BIB Printing &amp; Race Expo</h3>
       <p>Professional BIB printing with series management, pre-print and late-allocation models. Tablet-optimised Expo distribution with real-time search and duplicate prevention.</p>
-      <div class="service-tags"><span class="service-tag">BIB Series Mgmt</span><span class="service-tag">Expo Scanning</span><span class="service-tag">Audit Logs</span></div>
+      <div class="service-tags"><span class="service-tag">BIB Series Mgmt</span><span class="service-tag">Expo Scanning</span><span class="service-tag">Multi-Day</span></div>
     </div>
     <div class="service-card sc-yellow fade-in stagger-2">
       <div class="service-icon si-yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
@@ -409,15 +367,15 @@ footer { border-top: 1px solid var(--border); padding: 28px 0; }
     </div>
     <div class="service-card sc-pink fade-in stagger-4">
       <div class="service-icon si-pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 010-5C7 4 7 7 7 7"/><path d="M18 9h1.5a2.5 2.5 0 000-5C17 4 17 7 17 7"/><path d="M4 22h16"/><path d="M10 22V10M14 22V10"/><rect x="6" y="7" width="12" height="5" rx="1"/></svg></div>
-      <h3>Results & Leaderboards</h3>
+      <h3>Results &amp; Leaderboards</h3>
       <p>Instant race results with category-wise leaderboards, individual shareable pages, age-group rankings, and team classifications. Supporting marathon, triathlon, relay, and ultra formats.</p>
       <div class="service-tags"><span class="service-tag">Instant Publish</span><span class="service-tag">Multi-Format</span><span class="service-tag">Social Sharing</span></div>
     </div>
     <div class="service-card sc-lime fade-in stagger-5">
       <div class="service-icon si-lime"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
-      <h3>Finisher Photos & Certificates</h3>
+      <h3>Finisher Photos &amp; Certificates</h3>
       <p>Auto-tagged finisher photos matched to BIB numbers. Personalised finisher certificates and badges generated at scale — handling 500–1000 concurrent finishers.</p>
-      <div class="service-tags"><span class="service-tag">BIB Matching</span><span class="service-tag">Auto Certificates</span><span class="service-tag">Async Generation</span></div>
+      <div class="service-tags"><span class="service-tag">BIB Matching</span><span class="service-tag">Auto Certificates</span><span class="service-tag">WhatsApp Badges</span></div>
     </div>
     <div class="service-card sc-yellow fade-in stagger-6">
       <div class="service-icon si-yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
@@ -427,7 +385,7 @@ footer { border-top: 1px solid var(--border); padding: 28px 0; }
     </div>
     <div class="service-card sc-blue fade-in stagger-7">
       <div class="service-icon si-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
-      <h3>Revenue & Settlements</h3>
+      <h3>Revenue &amp; Settlements</h3>
       <p>Transparent financial reporting with waterfall breakdowns — gateway fees, platform charges, add-on revenue, and net settlement. Real-time reconciliation.</p>
       <div class="service-tags"><span class="service-tag">Reconciliation</span><span class="service-tag">Waterfall Reports</span><span class="service-tag">Real-time</span></div>
     </div>
@@ -447,30 +405,10 @@ footer { border-top: 1px solid var(--border); padding: 28px 0; }
   <div class="section-label fade-in">Race Lifecycle</div>
   <h2 class="section-title fade-in">One Partner.<br>Every Phase.</h2>
   <div class="timeline">
-    <div class="timeline-item fade-in">
-      <div class="timeline-dot tl-lime"></div>
-      <div class="timeline-phase tp-lime">Phase 01 — Pre-Race</div>
-      <h3>Plan & Register</h3>
-      <p>Event page setup, registration configuration, category design, pricing strategy, coupon management, and marketing campaign infrastructure. Zero to live in days, not weeks.</p>
-    </div>
-    <div class="timeline-item fade-in">
-      <div class="timeline-dot tl-pink"></div>
-      <div class="timeline-phase tp-pink">Phase 02 — Race Week</div>
-      <h3>Expo & Logistics</h3>
-      <p>BIB printing, race kit assembly, expo venue setup with tablet-based distribution, volunteer training, equipment transport and deployment. Every detail, executed.</p>
-    </div>
-    <div class="timeline-item fade-in">
-      <div class="timeline-dot tl-yellow"></div>
-      <div class="timeline-phase tp-yellow">Phase 03 — Race Day</div>
-      <h3>Timing & Tracking</h3>
-      <p>Chip timing deployment, decoder configuration, live tracking streams, start-line wave management, on-course split timing, and finish-line detection. Millisecond precision.</p>
-    </div>
-    <div class="timeline-item fade-in">
-      <div class="timeline-dot tl-blue"></div>
-      <div class="timeline-phase tp-blue">Phase 04 — Post-Race</div>
-      <h3>Results & Legacy</h3>
-      <p>Instant results publishing, finisher certificates and badges, photo tagging, participant communications, settlement reports, and analytics for your next event.</p>
-    </div>
+    <div class="timeline-item fade-in"><div class="timeline-dot tl-lime"></div><div class="timeline-phase tp-lime">Phase 01 — Pre-Race</div><h3>Plan &amp; Register</h3><p>Event page setup, registration configuration, category design, pricing strategy, coupon management, and marketing campaign infrastructure. Zero to live in days, not weeks.</p></div>
+    <div class="timeline-item fade-in"><div class="timeline-dot tl-pink"></div><div class="timeline-phase tp-pink">Phase 02 — Race Week</div><h3>Expo &amp; Logistics</h3><p>BIB printing, race kit assembly, expo venue setup with tablet-based distribution, volunteer training, equipment transport and deployment. Every detail, executed.</p></div>
+    <div class="timeline-item fade-in"><div class="timeline-dot tl-yellow"></div><div class="timeline-phase tp-yellow">Phase 03 — Race Day</div><h3>Timing &amp; Tracking</h3><p>Chip timing deployment, decoder configuration, live tracking streams, start-line wave management, on-course split timing, and finish-line detection. Millisecond precision.</p></div>
+    <div class="timeline-item fade-in"><div class="timeline-dot tl-blue"></div><div class="timeline-phase tp-blue">Phase 04 — Post-Race</div><h3>Results &amp; Legacy</h3><p>Instant results publishing, finisher certificates and badges, photo tagging, participant communications, settlement reports, and analytics for your next event.</p></div>
   </div>
 </div></section>
 
@@ -492,51 +430,8 @@ footer { border-top: 1px solid var(--border); padding: 28px 0; }
 
 <div class="section-divider"></div>
 
-<!-- ===== KEY EVENTS — UPDATED PORTFOLIO ===== -->
-y race expo managing 13,000 participant kit distributions</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- BANGALORE RUNNERS JATRE -->
-    <div class="event-card fade-in">
-      <div class="event-card-top">
-        <div class="event-header eh-yellow">
-          <div class="event-type c-yellow">Community Run</div>
-          <h3>Bangalore<br>Runners Jatre</h3>
-          <div class="event-scale">Community Running Festival</div>
-        </div>
-        <div class="event-body">
-          <div>
-            <div class="event-services-label">Services Delivered</div>
-            <div class="event-service-pills">
-              <span class="event-pill">Registration Platform</span>
-              <span class="event-pill">Participant Communications</span>
-              <span class="event-pill">Post-Race WhatsApp Finisher Badges</span>
-            </div>
-          </div>
-          <div class="event-special">
-            <div class="event-special-label">NovaRace Special</div>
-            <ul class="special-list sl-yellow">
-              <li>Customised WhatsApp finisher badge delivered instantly — personalised with each runner's finish time</li>
-              <li>End-to-end participant engagement from registration to post-race celebration</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- DHASH HALF MARATHON -->
-    <div class="event-card fade-in">
-      <div class="event-card-top">
-        <div class="event-header eh-lime">
-          <div class="event-type c-lime">Half Marathon</div>
-          <h3>Dhash Half<br>Marathon</h3>
-          <div class="event-scale">Full Stack Event Delivery</div>
-        </div>
-        <div class="ev<section class="section" id="portfolio"><div class="container">
+<!-- PORTFOLIO -->
+<section class="section" id="portfolio"><div class="container">
   <div class="section-label fade-in">Portfolio</div>
   <h2 class="section-title fade-in">Events That<br>Trust Nova Race</h2>
   <p class="section-subtitle fade-in">Every event has unique demands. Here's how we delivered — and what made each one special.</p>
@@ -599,12 +494,55 @@ y race expo managing 13,000 participant kit distributions</li>
             <ul class="special-list sl-blue">
               <li>Fully white-labelled registration platform deployed on client's own domain</li>
               <li>Seamless participant communications through WhatsApp, Email and SMS — all from one system</li>
-              <li>Multi-daent-body">
+              <li>Multi-day race expo managing 13,000 participant kit distributions</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BANGALORE RUNNERS JATRE -->
+    <div class="event-card fade-in">
+      <div class="event-card-top">
+        <div class="event-header eh-yellow">
+          <div class="event-type c-yellow">Community Run</div>
+          <h3>Bangalore<br>Runners Jatre</h3>
+          <div class="event-scale">Community Running Festival</div>
+        </div>
+        <div class="event-body">
           <div>
             <div class="event-services-label">Services Delivered</div>
             <div class="event-service-pills">
               <span class="event-pill">Registration Platform</span>
-              <span class="event-pill">Race Expo & BIB Distribution</span>
+              <span class="event-pill">Participant Communications</span>
+              <span class="event-pill">Post-Race WhatsApp Finisher Badges</span>
+            </div>
+          </div>
+          <div class="event-special">
+            <div class="event-special-label">NovaRace Special</div>
+            <ul class="special-list sl-yellow">
+              <li>Customised WhatsApp finisher badge delivered instantly — personalised with each runner's finish time</li>
+              <li>End-to-end participant engagement from registration to post-race celebration</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DHASH HALF MARATHON -->
+    <div class="event-card fade-in">
+      <div class="event-card-top">
+        <div class="event-header eh-lime">
+          <div class="event-type c-lime">Half Marathon</div>
+          <h3>Dhash Half<br>Marathon</h3>
+          <div class="event-scale">Full Stack Event Delivery</div>
+        </div>
+        <div class="event-body">
+          <div>
+            <div class="event-services-label">Services Delivered</div>
+            <div class="event-service-pills">
+              <span class="event-pill">Registration Platform</span>
+              <span class="event-pill">Race Expo &amp; BIB Distribution</span>
               <span class="event-pill">Chip Timing</span>
               <span class="event-pill">Race Results</span>
             </div>
@@ -625,21 +563,188 @@ y race expo managing 13,000 participant kit distributions</li>
 
 <div class="section-divider"></div>
 
-<!-- EVENT PHOTOS -->
-<section class="section">
-  <div class="container">
-    <div class="section-label fade-in">Event Gallery</div>
-    <h2 class="section-title fade-in">Race Day<br>Moments</h2>
+<!-- RACE GALLERY -->
+<section class="section" id="gallery"><div class="container">
+  <div class="section-label fade-in">Race Gallery</div>
+  <h2 class="section-title fade-in">Moments We've<br>Powered</h2>
+  <p class="section-subtitle fade-in">From start-line energy to finish-line glory — a glimpse of NovaRace on the ground.</p>
 
-    <div id="photo-gallery" class="photo-grid"></div>
+  <div class="gallery-grid fade-in">
+    <!-- Photo 1 - Wide (replace src with your photo) -->
+    <div class="gallery-item gi-wide">
+      <div class="gallery-placeholder gp-pink">
+        <div class="gp-icon">🏁</div>
+        <span class="gp-label">Finish Line Setup</span>
+        <span class="gp-sublabel">Replace: event1.jpg</span>
+      </div>
+      <!-- TO ADD PHOTO: Remove the div above and uncomment below -->
+      <!-- <img src="event1.jpg" alt="Finish Line"> -->
+      <div class="gi-overlay"><span>Finish Line · Race Day</span></div>
+    </div>
+
+    <!-- Photo 2 -->
+    <div class="gallery-item">
+      <div class="gallery-placeholder gp-blue">
+        <div class="gp-icon">⏱️</div>
+        <span class="gp-label">Timing Station</span>
+        <span class="gp-sublabel">Replace: event2.jpg</span>
+      </div>
+      <!-- <img src="event2.jpg" alt="Timing Station"> -->
+      <div class="gi-overlay"><span>RaceResult Decoders</span></div>
+    </div>
+
+    <!-- Photo 3 -->
+    <div class="gallery-item">
+      <div class="gallery-placeholder gp-yellow">
+        <div class="gp-icon">🏃</div>
+        <span class="gp-label">Start Line</span>
+        <span class="gp-sublabel">Replace: event3.jpg</span>
+      </div>
+      <!-- <img src="event3.jpg" alt="Start Line"> -->
+      <div class="gi-overlay"><span>Start Line Energy</span></div>
+    </div>
+
+    <!-- Photo 4 -->
+    <div class="gallery-item">
+      <div class="gallery-placeholder gp-lime">
+        <div class="gp-icon">🎽</div>
+        <span class="gp-label">Race Expo</span>
+        <span class="gp-sublabel">Replace: event4.jpg</span>
+      </div>
+      <!-- <img src="event4.jpg" alt="Race Expo"> -->
+      <div class="gi-overlay"><span>BIB Distribution</span></div>
+    </div>
+
+    <!-- Photo 5 - Wide -->
+    <div class="gallery-item gi-wide">
+      <div class="gallery-placeholder gp-violet">
+        <div class="gp-icon">🚴</div>
+        <span class="gp-label">Cycling Event</span>
+        <span class="gp-sublabel">Replace: event5.jpg</span>
+      </div>
+      <!-- <img src="event5.jpg" alt="HCL Cyclothon"> -->
+      <div class="gi-overlay"><span>HCL Cyclothon</span></div>
+    </div>
+
+    <!-- Photo 6 -->
+    <div class="gallery-item">
+      <div class="gallery-placeholder gp-pink">
+        <div class="gp-icon">📊</div>
+        <span class="gp-label">Live Results</span>
+        <span class="gp-sublabel">Replace: event6.jpg</span>
+      </div>
+      <!-- <img src="event6.jpg" alt="Live Results"> -->
+      <div class="gi-overlay"><span>Live Results Screen</span></div>
+    </div>
+
+    <!-- Photo 7 -->
+    <div class="gallery-item">
+      <div class="gallery-placeholder gp-blue">
+        <div class="gp-icon">🏆</div>
+        <span class="gp-label">Podium</span>
+        <span class="gp-sublabel">Replace: event7.jpg</span>
+      </div>
+      <!-- <img src="event7.jpg" alt="Podium"> -->
+      <div class="gi-overlay"><span>Winner Podium</span></div>
+    </div>
+
+    <!-- Photo 8 -->
+    <div class="gallery-item">
+      <div class="gallery-placeholder gp-yellow">
+        <div class="gp-icon">👥</div>
+        <span class="gp-label">Participants</span>
+        <span class="gp-sublabel">Replace: event8.jpg</span>
+      </div>
+      <!-- <img src="event8.jpg" alt="Participants"> -->
+      <div class="gi-overlay"><span>13,000+ Participants</span></div>
+    </div>
+
+    <!-- Photo 9 -->
+    <div class="gallery-item">
+      <div class="gallery-placeholder gp-lime">
+        <div class="gp-icon">📱</div>
+        <span class="gp-label">WhatsApp Badge</span>
+        <span class="gp-sublabel">Replace: event9.jpg</span>
+      </div>
+      <!-- <img src="event9.jpg" alt="Finisher Badge"> -->
+      <div class="gi-overlay"><span>Finisher Badge</span></div>
+    </div>
   </div>
-</section>
+
+  <p class="gallery-note fade-in">↑ Photos add பண்ண: placeholder div-ஐ remove பண்ணி img tag-ஐ uncomment பண்ணு</p>
+</div></section>
+
+<div class="section-divider"></div>
+
+<!-- TESTIMONIALS -->
+<section class="section" id="testimonials"><div class="container">
+  <div class="section-label fade-in">What They Say</div>
+  <h2 class="section-title fade-in">Trusted by<br>Organisers Across India</h2>
+  <div class="testimonials-grid">
+    <div class="testimonial-card fade-in">
+      <div class="testimonial-border-top tb-pink"></div>
+      <div class="testimonial-quote-mark">"</div>
+      <p class="testimonial-text">NovaRace delivered live leaderboard data straight into our YouTube stream and official website — something no other vendor even attempted. Their photo-finish verification saved us from two disputed results. Absolutely world-class execution.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar ta-pink">H</div>
+        <div><div class="testimonial-name">HCL Cyclothon</div><div class="testimonial-role">Event Organiser · Multi-City</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-in stagger-1">
+      <div class="testimonial-border-top tb-blue"></div>
+      <div class="testimonial-quote-mark">"</div>
+      <p class="testimonial-text">We needed the entire registration platform white-labelled on our domain — no visible third-party branding. NovaRace made it seamless. 13,000 participants registered, communicated with, and timed — all through one team.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar ta-blue">S</div>
+        <div><div class="testimonial-name">SAP Run Bangalore</div><div class="testimonial-role">Corporate Run · 13K Participants</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-in stagger-2">
+      <div class="testimonial-border-top tb-yellow"></div>
+      <div class="testimonial-quote-mark">"</div>
+      <p class="testimonial-text">The customised WhatsApp finisher badges with individual finish times were a massive hit with our runner community. People were sharing them on social media within minutes of crossing the finish line. That's the NovaRace difference.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar ta-yellow">B</div>
+        <div><div class="testimonial-name">Bangalore Runners Jatre</div><div class="testimonial-role">Community Running Festival</div></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<div class="section-divider"></div>
+
+<!-- TECH STACK -->
+<section class="section"><div class="container">
+  <div class="section-label fade-in">Under the Hood</div>
+  <h2 class="section-title fade-in">Built With<br>Serious Tech</h2>
+  <p class="section-subtitle fade-in">Our stack is built for reliability at scale — because on race day, there's no "try again later."</p>
+  <div class="tech-row fade-in">
+    <span class="tech-pill">Node.js</span>
+    <span class="tech-pill">PostgreSQL</span>
+    <span class="tech-pill">Redis</span>
+    <span class="tech-pill">BullMQ</span>
+    <span class="tech-pill">AWS (ap-south-1)</span>
+    <span class="tech-pill">RaceResult Hardware</span>
+    <span class="tech-pill">Socket.io</span>
+    <span class="tech-pill">React</span>
+    <span class="tech-pill">Next.js</span>
+    <span class="tech-pill">PayU / Razorpay</span>
+    <span class="tech-pill">ZeptoMail</span>
+    <span class="tech-pill">WhatsApp API</span>
+    <span class="tech-pill">ECS Fargate</span>
+    <span class="tech-pill">CloudFront CDN</span>
+  </div>
+</div></section>
+
+<div class="color-bar"><span class="cb-lime"></span><span class="cb-pink"></span><span class="cb-yellow"></span><span class="cb-blue"></span></div>
+
 <!-- CTA -->
 <section class="cta-section">
-  <div class="cta-glow g1"></div><div class="cta-glow g2"></div>
+  <div class="cta-glow g1"></div>
+  <div class="cta-glow g2"></div>
   <div class="container cta-content">
     <div class="section-label fade-in" style="justify-content: center;">Let's Talk</div>
-    <h2 class="fade-in">READY TO POWER<br>YOUR <span style="color: var(--nr-pink);">NEXT RACE?</span></h2>
+    <h2 class="fade-in">READY TO POWER<br>YOUR <span class="c-pink">NEXT RACE?</span></h2>
     <p class="cta-desc fade-in">Whether it's a 500-person community run or a 50,000-participant city marathon — we've got the tech, the team, and the track record.</p>
     <div class="cta-buttons fade-in">
       <a href="mailto:hello@novarace.in" class="btn-primary">Email Us <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -647,8 +752,8 @@ y race expo managing 13,000 participant kit distributions</li>
       <a href="https://wa.me/919626560605" target="_blank" class="btn-secondary">WhatsApp Us</a>
     </div>
     <div class="contact-grid fade-in">
-      <div><div class="contact-label">Email</div><div class="contact-value"><a href="mailto:support@novarace.in">hello@novarace.in</a></div></div>
-      <div><div class="contact-label">Phone</div><div class="contact-value"><a href="tel:+919626560404">+91 9626560404</a></div></div>
+      <div><div class="contact-label">Email</div><div class="contact-value"><a href="mailto:hello@novarace.in">hello@novarace.in</a></div></div>
+      <div><div class="contact-label">Phone</div><div class="contact-value"><a href="tel:+919626560404">+91 96265 60404</a></div></div>
       <div><div class="contact-label">Location</div><div class="contact-value">Bangalore, India</div></div>
       <div><div class="contact-label">Website</div><div class="contact-value"><a href="https://novarace.in" target="_blank">novarace.in</a></div></div>
     </div>
@@ -657,75 +762,24 @@ y race expo managing 13,000 participant kit distributions</li>
 
 <!-- FOOTER -->
 <footer><div class="container"><div class="footer-row">
-  <img src="logo.png" style="height: 40px;">
+  <img src="logo.png" style="height: 36px; width: auto;" alt="Nova Race">
   <div class="footer-copy">&copy; 2026 Nova Race. All rights reserved.</div>
   <div class="footer-location">Bangalore, IN</div>
 </div></div></footer>
-
-<div id="lightbox" class="lightbox">
-  <span class="close">&times;</span>
-  <img class="lightbox-img" id="lightbox-img">
-</div>
 
 <script>
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
- const images = [
-  {
-    src: "event1.jpg",
-    title: "Finish Line Setup",
-  },
-  {
-    src: "event2.jpg",
-    title: "Timing Station",
-  },
-  {
-    src: "event3.jpg",
-    title: "Start Line",
-  },
-  {
-    src: "event4.jpg",
-    title: "Race Expo",
-  },
-  {
-    src: "event5.jpg",
-    title: "Cycling Event",
-  }
-];
 
-const gallery = document.getElementById("photo-gallery");
-images.forEach((item, index) => {
-  const card = document.createElement("div");
-  card.classList.add("gallery-card");
-
-  if (index === 0) {
-    card.classList.add("big-card");
-  }
-
-  card.innerHTML = `
-    <img src="${item.src}" />
-    <div class="overlay">
-      <h3>${item.title}</h3>
-    </div>
-  `;
-
-  gallery.appendChild(card);
-});
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-const closeBtn = document.querySelector(".close");
-
-
-
-closeBtn.onclick = () => {
-  lightbox.style.display = "none";
-};
 document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => { e.preventDefault(); const t = document.querySelector(a.getAttribute('href')); if (t) t.scrollIntoView({ behavior: 'smooth' }); });
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) t.scrollIntoView({ behavior: 'smooth' });
+  });
 });
-
 </script>
 </body>
 </html>
